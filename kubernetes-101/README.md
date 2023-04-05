@@ -268,8 +268,12 @@ change CPU to 3
 
 ##deployments
 ```
-kubectl create deploy demo --image=nginx 
-kubectl set image deployment/nginx nginx=nginx:1.15.2 --record
+kubectl create deploy demo --image=nginx
+kubectl get deploy
+kubectl get rs
+kubectl scale deploy demo --replicas 5
+kubectl edit deploy demo (to change number of replicas)
+kubectl set image deployment/demo nginx=nginx:1.15.2 --record
 kubectl rollout history deployment demo 
 kubectl rollout undo deployment demo --to-revision 2 
 ```
